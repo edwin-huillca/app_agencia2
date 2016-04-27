@@ -51,27 +51,27 @@ img.imgCortada{
     position: absolute;
     /*background-image: url(../images/background.png)!important;*/
 }
-.roche-header{
+.app-header{
     height: 145px;
 }
-.roche-header-inner{
+.app-header-inner{
     text-align: center;
 }
-.roche-presentacion{
+.app-presentacion{
     text-align: center;
     background: #dcdcdc;
 }
-.home .roche-body{
+.home .app-body{
     position: relative;
 }
-.home .roche-body{
+.home .app-body{
     position: relative;
 }
-.lunarabcde.roche-body{
+.lunarabcde.app-body{
     padding: 0 0 60px 0;
     position: relative;
 }
-.roche-down{
+.app-down{
     position: absolute;
     bottom: 1px;
     text-align: center;
@@ -210,11 +210,11 @@ img.imgCortada{
 }
 
 
-.roche-header2{
+.app-header2{
     margin: 0 0 0 0;
     height: 65px;
 }
-.roche-header-inner2{
+.app-header-inner2{
     background: #008dcb;
     position: fixed;
     top: 0;
@@ -1179,7 +1179,7 @@ label.error {
     margin: 0 0 10px 0;
 }
 /* botones */
-html body div.roche-down .btn-steps{
+html body div.app-down .btn-steps{
     padding: 11px 15px 7px;
     background: #008dcb;
     border-top: 1px solid #6cbadc;
@@ -1685,7 +1685,7 @@ img.the-360{
     z-index: 0;
     opacity: 0;
 }
-.roche-body .active{
+.app-body .active{
     left: 0;
     top: 0;
     opacity: 1;
@@ -1695,10 +1695,10 @@ img.the-360{
     z-index:99999;
     opacity: 1;
 } 
-.roche-body .step1{
+.app-body .step1{
     background: #fff!important;
 } 
-.roche-body .step3{
+.app-body .step3{
     background: #fff!important;
 } 
 .previsualizador{
@@ -1864,18 +1864,18 @@ img.the-360{
         position: relative;
         margin: 20px auto 40px!important;
     }
-    .roche-body {
+    .app-body {
         padding: 0 0 60px 0;
     }
-    .roche-header {
+    .app-header {
         height: 135px;
     }
 }
 @media (min-height: 560px)  {
-    .roche-body {
+    .app-body {
         padding: 0 0 60px 0;
     }
-    .login .roche-body{
+    .login .app-body{
         margin-top: 40px;
     }
     #crop {
@@ -1884,7 +1884,7 @@ img.the-360{
     }
 }
 @media (min-height: 580px)  {
-    .roche-body {
+    .app-body {
         padding: 10px 0 80px 0;
         margin: 10px 0 0 0!important;
     }
@@ -1894,7 +1894,7 @@ img.the-360{
     .ubicador .slide.cycle-slideshow{
         margin: 0px 0 20px 0;
     }
-    html .login .roche-body{
+    html .login .app-body{
         margin-top: 60px!important;
     }
 }
@@ -1907,7 +1907,7 @@ img.the-360{
     }
 }
 @media (min-height: 900px)  {
-    .direction .roche-body {
+    .direction .app-body {
         padding: 60px 0 80px 0;
         margin: 70px 0 0 0!important;
     }
@@ -1921,7 +1921,7 @@ img.the-360{
         max-width: 360px;
         padding: 0 10px;
     }
-    html body div.roche-down .btn-steps{
+    html body div.app-down .btn-steps{
         padding: 16px 20px 12px;
         font-size: 19px;
     }
@@ -1984,13 +1984,13 @@ img.the-360{
     .ui-slider-track{
         height: 260px !important;
     }
-    html .login .roche-body{
+    html .login .app-body{
         margin-top: 130px!important;
     }
     .registro-lunar {
         max-width: 250px;
     }
-    .lunarabcde.roche-body{
+    .lunarabcde.app-body{
         padding: 0 0 120px 0!important;
     }
     .lunarabcde .slider{
