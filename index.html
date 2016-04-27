@@ -1,0 +1,138 @@
+
+<!doctype html>
+<html lang="en" class="no-bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP</title>
+    <!-- jQuery  -->
+    <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <!-- jQuery mobile -->
+    <link rel="stylesheet" href="js/jquery.mobile/jquery.mobile-1.4.5.min.css" type="text/css" />
+    <script type="text/javascript" src="js/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+    
+    <script type="text/javascript">
+    </script>
+    
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/fonts.css" type="text/css" />
+
+    <script type="text/javascript" src="js/model.js"></script>
+
+
+    <script type="text/javascript">
+        var id_usuario = _getUrlVars()["id"];
+       
+        $(function()
+        {
+      
+            $(".step1").addClass("active");
+
+            
+
+        });
+    </script>  
+</head>
+<body style="opacity: 0;" class="no">
+   
+    <div class="direction">
+
+        <div class="roche-body exception-body">
+            <div class="registro-luna-containerr" style="position:absolute;width:100%;height:100%;top: 0;   overflow: hidden;">
+
+            	<div class="step3">
+          
+                    <div class="preview-image">
+	                	<img id="previewPicture_" width="200" style="display:none"/>
+
+                        <div id="previewPicture"></div>
+                        
+	                	<div class="sector-bottom">
+		                	<a href="#" id="takePictureButtonP">Aceptar</a>
+		                	<a href="#" class="backStep2">Tomar otra foto</a>
+	                	</div>
+                        <div style="display:none;">
+                            <div id="txt_path"></div>
+                            <textarea id="txt_path2"></textarea>
+                        </div>
+	                </div>
+                </div>
+            	<div class="step2">
+                    <div class="button-cambiar">
+                        <a href="#" id="btnCamaraSwitch">
+                            <img src="images/backphone.png" alt="">
+                        </a>
+                        <a href="#" id="btnFlashSwitch" style="display:none;">
+                            <img src="images/backphone.png" alt="">
+                        </a>
+                    </div>
+	                <div class="camera-preview">
+	                	<div class="camera">
+                            <div class="previsualizador">
+                                
+                            </div>
+	                	</div>
+	                	<div class="mask-circle" style="background-color: transparent !important;background-image: url('images/circle-red.png');background-repeat:repeat;background-size: cover;">
+                            
+	                	</div>
+	                </div>
+                    <div class="button-capture">
+                        <a href="#" class="goStep3" id="takePictureButton">
+                            <img src="images/takephoto.png" alt="">
+                        </a>
+                        <div class="text">
+                            <a href="#" class="goStep3" id="takePictureButton2">
+                                Capturar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            	<div class="step1">
+	            	<div class="prev-camera">
+	            		<a href="#" class="goStep2" id="startCameraAnotherPosButton">
+	            			Activar camara
+	            		</a>
+	            		<a href="#" class="goStep2p" id="startCameraButton" style="display:none">
+	            			Usar camara posterior
+	            		</a>
+	            	</div>
+            	</div>
+            </div>
+        </div>
+    </div>
+                
+                
+        
+    
+        <script type="text/javascript">
+            $(function() {
+                
+                /*running*/
+                console.log( "on the party!" );
+                $( "body" ).fadeTo( "slow" , 1, function() {
+                    // Animation complete.
+                });
+                
+                /*funciones*/
+            	// menu 
+                function toggle_menu() {
+                    $( ".the-menu" ).toggleClass("active");
+                    app.onStopCamera();
+                }
+                /*Eventos*/
+                $('.cycle-slideshow').on('cycle-after',function(e, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag){
+                    $first_class= $(incomingSlideEl).attr('class').split(' ')[0]
+                    console.log($first_class);
+                });
+                $( ".btn-menu" ).on( "click", toggle_menu );
+
+            });
+        </script>
+    <script type="text/javascript">
+        model.initialize();
+    </script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/Base64.js"></script>
+    <script type="text/javascript" src="js/camara-preview.js"></script>
+</body>
+</html>

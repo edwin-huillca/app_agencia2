@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+    xmlns:gap       = "http://phonegap.com/ns/1.0"
+    xmlns:android   = "http://schemas.android.com/apk/res/android"
+    id              = "com.agencia.demo2.dev"
+    version         = "1.0.0">
+<name>DEV CAMARA DEMO</name>
+<description>Aplicació</description>
+
+<feature name="http://api.phonegap.com/1.0/network"/>
+<feature name="http://api.phonegap.com/1.0/device"/>
+<feature name="http://api.phonegap.com/1.0/file" />
+<feature name="http://api.phonegap.com/1.0/camera" />
+
+<preference name="orientation" value="portrait" />
+
+<gap:plugin name="org.apache.cordova.console" />
+<gap:plugin name="org.apache.cordova.device" />
+<gap:plugin name="org.apache.cordova.core.camera" />
+<gap:plugin name="com.phonegap.plugin.statusbar" />
+
+<gap:plugin name="org.apache.cordova.dialogs" />
+<gap:plugin name="org.apache.cordova.vibration" />
+
+<gap:plugin name="cordova-plugin-whitelist" source="npm" />
+<gap:plugin name="cordova-camera-preview" source="npm" />
+<plugin name="com.phonegap.plugins.pushplugin" source="pgb" />
+
+<gap:plugin name="cordova-plugin-uniquedeviceid" source="npm" />
+<gap:plugin name="cordova-plugin-flashlight" source="npm" />
+
+<access origin="*" subdomains="false"  />
+</widget>

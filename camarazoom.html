@@ -1,0 +1,247 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP</title>
+    <!-- jQuery  -->
+    <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <!-- jQuery mobile -->
+    <link rel="stylesheet" href="js/jquery.mobile/jquery.mobile-1.4.5.min.css" type="text/css" />
+    <script type="text/javascript" src="js/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- croppie -->
+    <link rel="stylesheet" href="js/croppie-master/" type="text/css" />
+    <script src="js/cropit-master/dist/jquery.cropit.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+    <style type="text/css">
+        .cropit-image-preview{
+            width: 100%;
+            height: 300px;
+        }
+        /* Translucent background image */
+        .cropit-image-background {
+          opacity: .2;
+        }
+
+        /*
+         * If the slider or anything else is covered by the background image,
+         * use relative or absolute position on it
+         */
+        input.cropit-image-zoom-input {
+          position: relative;
+        }
+
+        /* Limit the background image by adding overflow: hidden */
+        #image-cropper {
+          overflow: hidden;
+        }
+        .roche-body{
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .ui-slider input{
+            display: none;
+        }    
+        .ui-slider .ui-slider-track{
+            margin: 0;
+            width: 5px!important;
+        }    
+        .ui-slider-track{
+            height: 5px;
+        }
+        .ui-slider-track .ui-btn.ui-slider-handle{
+            height: 22px;
+            width: 22px;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            background: #008dcb;
+            margin-left: -13px!important;
+        }
+        .slider{
+            top: 0;
+            /* border: 1px solid white; */
+            width: 35px;
+            height: 20px;
+            position: relative;
+            background: transparent;
+            /*
+            width: 300px; //equired for proper track sizing in FF
+            max-width: 100%;*/
+        }
+        .slider-container{
+            top: 10px;
+            position: absolute;
+            right: 0;
+            /*
+            width: 300px; //equired for proper track sizing in FF
+            max-width: 100%;*/
+        }
+        .ui-slider-track::before {
+            content: "+";
+            position: absolute;
+            right: -5px;
+            font-size: 27px;
+            top: -47px;
+            color: #008dcb;
+            font-weight: bold;
+        }
+        .ui-slider-track::after {
+            content: "-";
+            position: absolute;
+            left: -2px;
+            font-size: 27px;
+            bottom: -47px;
+            color: #008dcb;
+            font-weight: bold;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/model.js"></script>
+    <script type="text/javascript">
+        var id_usuario = _getUrlVars()["id"];
+       
+        $(function()
+        {
+
+        });
+    </script>
+    <script type="text/javascript">
+        model.initialize();
+        getLog();
+    </script>
+    
+    <script type="text/javascript">
+        
+        function render_cropit(imgbase64_d){
+            /* run plugins */
+            doc_height= $( document ).height();
+            doc_width= $( document ).width();
+            if( doc_height > 900 && doc_width > 600){
+                width_crop = 750;//500
+                height_crop = 450;//300
+                exportZoomV = 1;
+            }else{
+                width_crop = 250;
+                height_crop = 150;
+                exportZoomV = 1;//3: pixel radio // 2 if 500 and 300
+            }
+            
+        
+            console.log("init");
+            $('#crop').cropit({
+                imageBackground: true,
+                width:width_crop,
+                height:height_crop,
+                imageState: {
+                //src: 'images/presentacion.png',
+                src: imgbase64_d,
+                },
+                viewport: {
+                    width: 250,
+                    height: 150,
+                    //type: 'circle'
+                },
+                exportZoom: exportZoomV,
+                imageBackgroundBorderWidth: 30
+            });
+            console.log("init");
+        }
+
+        $(function() {
+            $( "body" ).fadeTo( "slow" , 1, function() {
+                // Animation complete.
+            });
+            
+            /*running*/
+            console.log( "on the party!" );
+            
+            /*Variables*/
+            $first_class = "frontal";
+            
+            /*funciones*/
+        	// menu 
+            function toggle_menu() {
+                $( ".the-menu" ).toggleClass("active");
+            }            
+
+            /*Eventos*/
+            $('.cycle-slideshow').on('cycle-after',function(e, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag){
+                $first_class= $(incomingSlideEl).attr('class').split(' ')[0]
+                console.log($first_class);
+            });
+
+            $( ".btn-menu" ).on( "click", toggle_menu );
+            showRecords_Foto();
+
+            $('.export').click(function() {
+              var imageData = $('#crop').cropit('export');
+              $(".camara").append("<img src='"+imageData+"'/>");
+            });
+
+            $( ".cr-slider" ).rangeslider({
+              create: function( event, ui ) {
+                $( ".cr-slider" ).rangeslider( "destroy" );
+              }
+            });
+
+            $('#btnResult').on('click', function() {
+                var imageData = $('#crop').cropit('export');
+                getPreGuardar(imageData);
+            });
+
+
+        });
+    </script>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/fonts.css" type="text/css" />
+</head>
+<body style="opacity: 0;">
+    <div class="direction">
+
+        <div class="roche-body">
+            <input type="hidden" value="" id="txtLunarId" name="txtLunarId" />
+            <div class="camara-zoom">
+                <div class="body-camara-zoom">
+                    <div class="log"></div>
+                    <p class="text-camara-zoom">
+                    </p>
+                    <div class="camara">
+                        <div id="crop">
+                            <div style="width:100%;height:100%;opacity:0;position:absolute;left:0;top:0;"></div>
+                            <div class="cropit-image-preview-container">
+                                <div class="cropit-image-preview"></div>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <img src="" id="img_load" width="200" style="display:none"/>                           
+                            <textarea id="div_base64" style="display:none"></textarea>
+                        </div>
+                        
+                        <div>
+                            <textarea type="textarea" class="description" id="description" placeholder="Escribe una descripcion aqui" name="description"></textarea>
+                        </div> 
+                    </div>
+                    <button class="basic-result" style="display:none">Result</button>
+                </div>
+            </div>
+        </div>
+        <div class="roche-down">
+            <a class="btn-steps" id="btnResult" href="#">
+                GUARDAR
+            </a>
+        </div>
+    </div>
+
+    <div class="layer-ad" style="display:none">
+        <div class="text">
+            TU FOTO <br>
+            ESTA SIENDO <br>
+            GUARDADA <br>
+            <img src="images/loading.gif" width="40px" />
+        </div>
+    </div>
+</body>
+</html>
